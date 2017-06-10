@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>Alexa Interrogator Controller for Person {{p}}</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="chat-container">
+        <img src="/static/logo.png" id="logo" />
+        <div id="q-container" class="center border middle">
+            Waiting for question...
+        </div>
+        <div id="a-container" class="center">
+            <div class="center input-group">
+                <input id="answer" type="text" class="form-control" placeholder="Answer" />
+                <span class="input-group-btn">
+                    <button id="send-answer" class="btn btn-secondary alert-info" type="button">Send</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-id">Alexa Turing Test Interrogator</div>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
+    <script type="text/javascript" src="/static/ws.js"></script>
+  </body>
+</html>

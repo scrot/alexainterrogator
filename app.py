@@ -28,10 +28,10 @@ def incomming_question(person):
 
     r = request.get_json()
     print("received message: " + str(r))
-    socketio.emit('question', r, namespace="/person/" + r['person'])
+    socketio.emit('question', r, namespace="/person/" + person)
     
     x = None
-    while(RESPONSE is None or RESPONSE['person'] != r['person']):
+    while(RESPONSE is None or RESPONSE['person'] != person):
         pass
     return json.dumps(RESPONSE)
 

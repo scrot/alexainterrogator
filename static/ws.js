@@ -14,6 +14,7 @@ $(document).ready(function() {
         socket2.emit('answer', {
             person: namespace[namespace.length - 1],
             answer: $('#answer').val()});
+        $('#a-container input').val("");
         return false;
     });
 

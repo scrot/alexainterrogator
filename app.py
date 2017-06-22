@@ -8,12 +8,12 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "random"
 socketio = SocketIO(app)
 
-RESPONSE = None
+RESPONSE = {}
 
 @socketio.on('answer', namespace="/answers")
 def incomming_answer(r):
     global RESPONSE
-    print('received message: ' + str(r))
+    print('received answer from person' + r.get('person') + ': ' + str(r))
     RESPONSE = r
     print(RESPONSE)
 
@@ -24,15 +24,16 @@ def incomming_question(person):
     handle incomming question
     """
     global RESPONSE
-    RESPONSE = None
+    RESPONSE = {}
 
     r = request.get_json()
-    print("received message: " + str(r))
+    print("received question for person " + person + ": " + str(r))
     socketio.emit('question', r, namespace="/person/" + person)
     
-    x = None
-    while(RESPONSE is None or RESPONSE['person'] != person):
-        pass
+    while(RESPONSE.get('person') != person):
+        exit = RESPONSE.get('answer')
+        if exit == 'exit':
+            return json.dumps({'person':'None', 'answer': 'I am requested to skip this question'})
     return json.dumps(RESPONSE)
 
 
